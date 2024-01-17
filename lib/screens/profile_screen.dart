@@ -1,4 +1,5 @@
 import 'package:ecommerce/provider/theme_provider.dart';
+import 'package:ecommerce/screens/inner/viewed_recently.dart';
 import 'package:ecommerce/services/assetManager.dart';
 import 'package:ecommerce/widgets/app_name.dart';
 import 'package:ecommerce/widgets/subtitle_test.dart';
@@ -110,7 +111,9 @@ class ProfileScreen extends StatelessWidget {
                   text: 'Viewed recently',
                   image: '${AssetManager.profileImagePath}/recent.png',
                   icon: IconlyBold.arrowRight,
-                  fc: () {}),
+                  fc: (){
+                    Navigator.pushNamed(context, ViewedRecently.routeName);
+                  }),
               CustomListTile(
                   text: 'Address',
                   image: '${AssetManager.bagimagepath}/order_svg.png',
@@ -164,7 +167,7 @@ class CustomListTile extends StatelessWidget {
   final String text;
   final String image;
   final IconData icon;
-  final Function fc;
+  final Function() fc;
 
   @override
   Widget build(BuildContext context) {
@@ -175,7 +178,7 @@ class CustomListTile extends StatelessWidget {
         height: 34,
       ),
       trailing: Icon(icon),
-      onTap: fc(),
+      onTap: fc,
     );
   }
 }

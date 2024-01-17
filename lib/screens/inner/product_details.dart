@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:ecommerce/const/app_constants.dart';
 import 'package:ecommerce/widgets/app_name.dart';
@@ -7,7 +6,6 @@ import 'package:ecommerce/widgets/subtitle_test.dart';
 import 'package:ecommerce/widgets/title_widget.dart';
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_iconly/flutter_iconly.dart';
 
 class ProductDetails extends StatefulWidget {
   const ProductDetails({super.key});

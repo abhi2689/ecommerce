@@ -1,3 +1,4 @@
+import 'package:ecommerce/widgets/heart_button.dart';
 import 'package:ecommerce/widgets/qty_bottonsheet_widget.dart';
 import 'package:ecommerce/widgets/title_widget.dart';
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
@@ -49,12 +50,9 @@ class CartWidget extends StatelessWidget {
                                 color: Colors.red,
                               ),
                             ),
-                            IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                IconlyLight.heart,
-                              ),
-                            ),
+                            const HeartButton(
+                              backgroundColor: Colors.white,
+                            )
                           ],
                         ),
                       ],
@@ -70,7 +68,9 @@ class CartWidget extends StatelessWidget {
                               builder: (context) => const QtyBottomSheet(),
                               shape: const RoundedRectangleBorder(
                                 borderRadius: BorderRadius.all(
-                                  Radius.circular(15),
+                                  Radius.circular(
+                                    15,
+                                  ),
                                 ),
                               ),
                             );

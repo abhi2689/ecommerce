@@ -1,6 +1,5 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:ecommerce/const/app_constants.dart';
-import 'package:ecommerce/services/assetManager.dart';
 import 'package:ecommerce/widgets/category_rounded_widget.dart';
 import 'package:ecommerce/widgets/latest_arrival.dart';
 import 'package:ecommerce/widgets/title_widget.dart';

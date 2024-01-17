@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:ecommerce/const/app_constants.dart';
 import 'package:ecommerce/screens/inner/product_details.dart';
