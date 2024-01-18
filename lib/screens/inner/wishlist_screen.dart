@@ -10,7 +10,7 @@ import 'package:flutter_iconly/flutter_iconly.dart';
 class WishlistScreen extends StatelessWidget {
   const WishlistScreen({super.key});
   final bool isEmpty = false;
-  static const routeName = '/viewedRecently';
+  static const routeName = '/WishList';
   @override
   Widget build(BuildContext context) {
     return isEmpty
@@ -25,9 +25,8 @@ class WishlistScreen extends StatelessWidget {
           )
         : Scaffold(
             appBar: AppBar(
-              leading:
-                  Image.asset('${AssetManager.bagimagepath}/shopping_cart.png'),
-              title: const TitleWidget(text: "Cart(6)"),
+
+              title: const TitleWidget(text: "WishList"),
               elevation: 0,
               actions: [
                 IconButton(

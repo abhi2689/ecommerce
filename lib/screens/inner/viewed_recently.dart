@@ -25,8 +25,7 @@ class ViewedRecently extends StatelessWidget {
           )
         : Scaffold(
             appBar: AppBar(
-              leading:
-                  Image.asset('${AssetManager.bagimagepath}/shopping_cart.png'),
+
               title: const TitleWidget(text: "Cart(6)"),
               elevation: 0,
               actions: [

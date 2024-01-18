@@ -2,6 +2,7 @@ import 'package:ecommerce/const/theme_data.dart';
 import 'package:ecommerce/provider/theme_provider.dart';
 import 'package:ecommerce/screens/inner/product_details.dart';
 import 'package:ecommerce/screens/inner/viewed_recently.dart';
+import 'package:ecommerce/screens/inner/wishlist_screen.dart';
 import 'package:ecommerce/screens/rootScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -24,7 +25,8 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             routes: {
               ProductDetails.routeName: (context) => const ProductDetails(),
-              ViewedRecently.routeName: (context) => const ViewedRecently()
+              ViewedRecently.routeName: (context) => const ViewedRecently(),
+              WishlistScreen.routeName: (context) => const WishlistScreen()
             },
             debugShowCheckedModeBanner: false,
             home: const RootScreen(),

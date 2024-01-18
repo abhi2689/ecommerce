@@ -1,5 +1,6 @@
 import 'package:ecommerce/provider/theme_provider.dart';
 import 'package:ecommerce/screens/inner/viewed_recently.dart';
+import 'package:ecommerce/screens/inner/wishlist_screen.dart';
 import 'package:ecommerce/services/assetManager.dart';
 import 'package:ecommerce/widgets/app_name.dart';
 import 'package:ecommerce/widgets/subtitle_test.dart';
@@ -106,12 +107,14 @@ class ProfileScreen extends StatelessWidget {
                   text: 'WishList',
                   image: '${AssetManager.bagimagepath}/wishlist_svg.png',
                   icon: IconlyBold.arrowRight,
-                  fc: () {}),
+                  fc: () {
+                    Navigator.pushNamed(context, WishlistScreen.routeName);
+                  }),
               CustomListTile(
                   text: 'Viewed recently',
                   image: '${AssetManager.profileImagePath}/recent.png',
                   icon: IconlyBold.arrowRight,
-                  fc: (){
+                  fc: () {
                     Navigator.pushNamed(context, ViewedRecently.routeName);
                   }),
               CustomListTile(
@@ -137,9 +140,11 @@ class ProfileScreen extends StatelessWidget {
               Center(
                 child: ElevatedButton.icon(
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30))),
+                    backgroundColor: Colors.red,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                  ),
                   onPressed: () {},
                   icon: const Icon(Icons.login),
                   label: const Text(

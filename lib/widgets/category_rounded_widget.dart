@@ -11,18 +11,22 @@ class CategoryRoundedWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.asset(
-          image,
-          height: 50,
-          width: 50,
+        Flexible(
+          child: Image.asset(
+            image,
+            height: 50,
+            width: 50,
+          ),
         ),
         const SizedBox(
           height: 5,
         ),
-        Subtitletext(
-          text: name,
-          fontsize: 14,
-          fontWeight: FontWeight.bold,
+        FittedBox(
+          child: Subtitletext(
+            text: name,
+            fontsize: 14,
+            fontWeight: FontWeight.bold,
+          ),
         )
       ],
     );
