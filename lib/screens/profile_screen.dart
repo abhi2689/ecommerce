@@ -8,6 +8,7 @@ import 'package:ecommerce/widgets/title_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:provider/provider.dart';
+import 'package:ecommerce/services/myAppFunction.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -145,7 +146,12 @@ class ProfileScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(30),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    MyAppFUnction.showErrorOrWarning(
+                        context: context,
+                        fct: () {},
+                        subTitle: 'Are you sure want to Signout');
+                  },
                   icon: const Icon(Icons.login),
                   label: const Text(
                     "Login",

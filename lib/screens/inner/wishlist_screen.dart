@@ -9,12 +9,12 @@ import 'package:flutter_iconly/flutter_iconly.dart';
 
 class WishlistScreen extends StatelessWidget {
   const WishlistScreen({super.key});
-  final bool isEmpty = false;
+  final bool isEmpty = true;
   static const routeName = '/WishList';
   @override
   Widget build(BuildContext context) {
     return isEmpty
-        ? Scaffold(
+        ? Scaffold(appBar: AppBar(backgroundColor: Colors.transparent,elevation: 0,),
             body: CustomCartWidget(
               imagePath: '${AssetManager.bagimagepath}/shopping_basket.png',
               title: 'No Product Yet',

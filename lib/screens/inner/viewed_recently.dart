@@ -9,12 +9,12 @@ import 'package:flutter_iconly/flutter_iconly.dart';
 
 class ViewedRecently extends StatelessWidget {
   const ViewedRecently({super.key});
-  final bool isEmpty = false;
+  final bool isEmpty= true;
   static const routeName = '/viewedRecently';
   @override
   Widget build(BuildContext context) {
     return isEmpty
-        ? Scaffold(
+        ? Scaffold(appBar: AppBar(elevation: 0,backgroundColor: Colors.transparent,),
             body: CustomCartWidget(
               imagePath: '${AssetManager.bagimagepath}/shopping_basket.png',
               title: 'No Viewed Product Yet',
@@ -25,7 +25,6 @@ class ViewedRecently extends StatelessWidget {
           )
         : Scaffold(
             appBar: AppBar(
-
               title: const TitleWidget(text: "Cart(6)"),
               elevation: 0,
               actions: [
