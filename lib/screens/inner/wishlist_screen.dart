@@ -1,6 +1,4 @@
 import 'package:ecommerce/services/assetManager.dart';
-import 'package:ecommerce/widgets/cart_bottomWidget.dart';
-import 'package:ecommerce/widgets/cart_widget.dart';
 import 'package:ecommerce/widgets/custom_cart_widget.dart';
 import 'package:ecommerce/widgets/product_widget.dart';
 import 'package:ecommerce/widgets/title_widget.dart';

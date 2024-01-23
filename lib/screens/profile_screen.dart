@@ -149,7 +149,8 @@ class ProfileScreen extends StatelessWidget {
                   onPressed: () {
                     MyAppFUnction.showErrorOrWarning(
                         context: context,
-                        fct: () {},
+                        isError: false,
+                        fct:  (){Navigator.pop(context);},
                         subTitle: 'Are you sure want to Signout');
                   },
                   icon: const Icon(Icons.login),

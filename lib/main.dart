@@ -1,3 +1,5 @@
+import 'package:ecommerce/auth/register.dart';
+import 'package:ecommerce/auth/sign_inscreen.dart';
 import 'package:ecommerce/const/theme_data.dart';
 import 'package:ecommerce/provider/theme_provider.dart';
 import 'package:ecommerce/screens/inner/product_details.dart';
