@@ -1,6 +1,8 @@
+import 'package:ecommerce/auth/sign_inscreen.dart';
 import 'package:ecommerce/provider/theme_provider.dart';
 import 'package:ecommerce/screens/inner/viewed_recently.dart';
 import 'package:ecommerce/screens/inner/wishlist_screen.dart';
+import 'package:ecommerce/screens/order_screen.dart';
 import 'package:ecommerce/services/assetManager.dart';
 import 'package:ecommerce/widgets/app_name.dart';
 import 'package:ecommerce/widgets/subtitle_test.dart';
@@ -103,7 +105,9 @@ class ProfileScreen extends StatelessWidget {
                   text: 'All Orders',
                   image: '${AssetManager.profileImagePath}/address.png',
                   icon: IconlyBold.arrowRight,
-                  fc: () {}),
+                  fc: () {
+                    Navigator.pushNamed(context, OrderScreen.routeName);
+                  }),
               CustomListTile(
                   text: 'WishList',
                   image: '${AssetManager.bagimagepath}/wishlist_svg.png',
@@ -147,11 +151,7 @@ class ProfileScreen extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    MyAppFUnction.showErrorOrWarning(
-                        context: context,
-                        isError: false,
-                        fct:  (){Navigator.pop(context);},
-                        subTitle: 'Are you sure want to Signout');
+                    Navigator.pushNamed(context, SignInScreen.routeName);
                   },
                   icon: const Icon(Icons.login),
                   label: const Text(

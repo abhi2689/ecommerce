@@ -14,7 +14,7 @@ import 'package:image_picker/image_picker.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
-
+  static const routeName = '/RegisterScreen';
   @override
   State<RegisterScreen> createState() => _RegisterScreenState();
 }
@@ -88,13 +88,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
         FocusScope.of(context).unfocus();
       },
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          elevation: 0,
+        ),
         body: Form(
           key: _formKey,
           child: SingleChildScrollView(
             child: Column(
               children: [
                 const SizedBox(
-                  height: 60,
+                  height: 30,
                 ),
                 const Align(
                   child: AppNameWidget(),
@@ -125,8 +129,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       height: 100,
                       width: 100,
                       child: ImagePickerWidget(
-                        fct: () async{
-                         await localImagePicker();
+                        fct: () async {
+                          await localImagePicker();
                         },
                         pickedImage: pickedImage,
                       )),

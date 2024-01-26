@@ -10,6 +10,8 @@ class AppConstants {
     '${AssetManager.bannersImagepath}/banner2.png'
   ];
 
+
+
   static List<CategoriesModel> categoriesList = [
     CategoriesModel(
         id: AssetManager.mobiles, name: 'Mobiles', image: AssetManager.mobiles),

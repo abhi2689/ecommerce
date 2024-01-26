@@ -1,16 +1,19 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:ecommerce/const/app_constants.dart';
+import 'package:ecommerce/provider/product_provider.dart';
 import 'package:ecommerce/widgets/category_rounded_widget.dart';
 import 'package:ecommerce/widgets/latest_arrival.dart';
 import 'package:ecommerce/widgets/title_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-
+  static const routeName = '/HomeScreen';
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    final productProvider = Provider.of<ProductProvider>(context);
     return Scaffold(
       body: Center(
         child: Padding(
@@ -22,7 +25,8 @@ class HomeScreen extends StatelessWidget {
                   height: size.height * .25,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(20),
-                    child: Swiper(autoplay: true,
+                    child: Swiper(
+                      autoplay: true,
                       itemCount: AppConstants.bannerImage.length,
                       pagination: const SwiperPagination(
                           builder: DotSwiperPaginationBuilder(
@@ -48,20 +52,26 @@ class HomeScreen extends StatelessWidget {
                 SizedBox(
                   height: size.height * .25,
                   child: ListView.builder(
+                    itemExtent: 200,
                     scrollDirection: Axis.horizontal,
                     shrinkWrap: true,
-                    itemCount: 10,
+                    itemCount: productProvider.getProducts.length,
                     itemBuilder: (context, index) {
-                      return const LatestArriavalWidget();
+                      return ChangeNotifierProvider.value(
+                        value: productProvider.getProducts[index],
+                        child: const LatestArriavalWidget(),
+                      );
                     },
                   ),
-                ),const SizedBox(
+                ),
+                const SizedBox(
                   height: 15,
                 ),
                 const Align(
                   alignment: Alignment.bottomLeft,
                   child: TitleWidget(text: "Categories"),
-                ),const SizedBox(
+                ),
+                const SizedBox(
                   height: 15,
                 ),
                 Padding(

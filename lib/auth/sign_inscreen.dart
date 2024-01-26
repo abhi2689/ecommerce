@@ -1,7 +1,11 @@
 import 'dart:ffi';
 
+import 'package:ecommerce/auth/forgot_password.dart';
 import 'package:ecommerce/auth/google_button.dart';
+import 'package:ecommerce/auth/register.dart';
 import 'package:ecommerce/const/validator.dart';
+import 'package:ecommerce/screens/home.dart';
+import 'package:ecommerce/screens/rootScreen.dart';
 import 'package:ecommerce/services/myAppFunction.dart';
 import 'package:ecommerce/widgets/app_name.dart';
 import 'package:ecommerce/widgets/subtitle_test.dart';
@@ -11,7 +15,7 @@ import 'package:flutter_iconly/flutter_iconly.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
-
+  static const routeName = '/SignInScreen';
   @override
   State<SignInScreen> createState() => _SignInScreenState();
 }
@@ -51,6 +55,10 @@ class _SignInScreenState extends State<SignInScreen> {
         FocusScope.of(context).unfocus();
       },
       child: Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        ),
         body: Form(
           key: _formKey,
           child: SingleChildScrollView(
@@ -126,7 +134,9 @@ class _SignInScreenState extends State<SignInScreen> {
                 Align(
                   alignment: Alignment.bottomRight,
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, ForgotPassword.routeName);
+                    },
                     child: const Text(
                       "Forgot Password ?",
                       style: TextStyle(
@@ -193,7 +203,10 @@ class _SignInScreenState extends State<SignInScreen> {
                                 ),
                                 backgroundColor: Colors.white30,
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushNamed(
+                                    context, RootScreen.routeName);
+                              },
                               child: const FittedBox(
                                 child: Text(
                                   "Guest",
@@ -205,6 +218,24 @@ class _SignInScreenState extends State<SignInScreen> {
                       ),
                     ],
                   ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    TitleWidget(
+                      text: 'Dont have an account',
+                      fontsize: 12,
+                    ),
+                    TextButton(
+                        onPressed: () {
+                          Navigator.pushNamed(
+                              context, RegisterScreen.routeName);
+                        },
+                        child: Text("Register"))
+                  ],
                 )
               ],
             ),

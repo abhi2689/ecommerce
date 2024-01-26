@@ -1,5 +1,7 @@
 import 'dart:developer';
 
+import 'package:ecommerce/model/product_model.dart';
+import 'package:ecommerce/provider/product_provider.dart';
 import 'package:ecommerce/provider/theme_provider.dart';
 import 'package:ecommerce/services/assetManager.dart';
 import 'package:ecommerce/widgets/app_name.dart';
@@ -31,8 +33,10 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    print(size.height);
     final ThemeDataa = Provider.of<ThemeProvider>(context);
-
+    final productProvider = Provider.of<ProductProvider>(context);
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -67,7 +71,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   ),
                 ),
                 onChanged: (value) {
-                  log('Valie is $value');
+                  log('Value is $value');
                 },
                 onSubmitted: (value) {
                   log('value is $value');
@@ -77,18 +81,19 @@ class _SearchScreenState extends State<SearchScreen> {
                 height: 20,
               ),
               Expanded(
-                child: GridView.builder(
-                  padding: const EdgeInsets.all(3),
-                  itemCount: 10,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 2),
-                  itemBuilder: (context, index) {
-                    return const ProductWidget();
-                  },
+                  child: GridView.builder(
+                itemCount: productProvider.products.length,
+                shrinkWrap: true,
+                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                    crossAxisSpacing: 20,
+                    mainAxisSpacing: 20,
+                    maxCrossAxisExtent: 200,
+                    mainAxisExtent: size.height>= 1000 ? 160 : 160),
+                itemBuilder: (context, index) => ChangeNotifierProvider.value(
+                  value: productProvider.getProducts[index],
+                  child: const ProductWidget(),
                 ),
-              )
+              ))
             ],
           ),
         ),
